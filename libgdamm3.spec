@@ -6,12 +6,12 @@
 Summary:	C++ wrappers for libgda 3.x
 Summary(pl.UTF-8):	Interfejsy C++ dla libgda 3.x
 Name:		libgdamm3
-Version:	2.9.8
+Version:	2.9.81
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdamm/2.9/%{realname}-%{version}.tar.gz
-# Source0-md5:	9ea5f3ff6157581e9546ffc3a014b61a
+# Source0-md5:	ef07649a9da29f6ecf3f6ab5bb843f97
 BuildRequires:	glibmm-devel >= 2.12.8
 BuildRequires:	libgda3-devel >= 3.0.0
 BuildRequires:	perl-base
