@@ -3,34 +3,35 @@
 %bcond_without	static_libs # don't build static library
 #
 %define		realname	libgdamm
-#
-Summary:	C++ wrappers for libgda
-Summary(pl.UTF-8):	Interfejsy C++ dla libgda
+Summary:	C++ wrappers for libgda 3.x
+Summary(pl.UTF-8):	Interfejsy C++ dla libgda 3.x
 Name:		libgdamm3
 Version:	2.9.8
 Release:	1
-License:	LGPL
+License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdamm/2.9/%{realname}-%{version}.tar.gz
 # Source0-md5:	9ea5f3ff6157581e9546ffc3a014b61a
-BuildRequires:	glibmm-devel >= 2.11.3
-BuildRequires:	libgda-devel >= 1:1.2.3
+BuildRequires:	glibmm-devel >= 2.12.8
+BuildRequires:	libgda3-devel >= 3.0.0
 BuildRequires:	perl-base
+BuildRequires:	pkgconfig
+Requires:	glibmm >= 2.12.8
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-C++ wrappers for libgda.
+C++ wrappers for libgda 3.x.
 
 %description -l pl.UTF-8
-Interfejsy C++ dla libgda.
+Interfejsy C++ dla libgda 3.x.
 
 %package devel
 Summary:	Header files for libgdamm library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgdamm
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glibmm-devel >= 2.11.3
-Requires:	libgda-devel >= 1:1.2.3
+Requires:	glibmm-devel >= 2.12.8
+Requires:	libgda3-devel >= 3.0.0
 
 %description devel
 Header files for libgdamm library.
@@ -73,19 +74,20 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+%doc AUTHORS ChangeLog NEWS README TODO
+%attr(755,root,root) %{_libdir}/libgdamm-3.0.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgdamm-3.0.so.8
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/libgdamm-3.0.so
+%{_libdir}/libgdamm-3.0.la
 %{_libdir}/libgdamm-3.0
-%{_includedir}/*
-%{_pkgconfigdir}/*.pc
+%{_includedir}/libgdamm-3.0
+%{_pkgconfigdir}/libgdamm-3.0.pc
 
 %if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgdamm-3.0.a
 %endif
