@@ -9,11 +9,12 @@ Summary:	C++ wrappers for libgda 3.x
 Summary(pl.UTF-8):	Interfejsy C++ dla libgda 3.x
 Name:		libgdamm3
 Version:	3.0.0
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdamm/3.0/%{realname}-%{version}.tar.bz2
 # Source0-md5:	f1ab9b9fad1ab02eb3e580911ce5e702
+Patch0:		%{name}-ac.patch
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	glibmm-devel >= 2.12.8
@@ -58,6 +59,7 @@ Statyczna biblioteka libgdamm3.
 
 %prep
 %setup -q -n %{realname}-%{version}
+%patch0 -p1
 
 %build
 %{__libtoolize}
