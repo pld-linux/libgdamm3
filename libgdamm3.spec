@@ -2,7 +2,7 @@
 # - package examples
 #
 # Conditional build:
-%bcond_without	static_libs # don't build static library
+%bcond_without	static_libs	# don't build static library
 #
 %define		realname	libgdamm
 Summary:	C++ wrappers for libgda 3.x
@@ -67,7 +67,7 @@ Statyczna biblioteka libgdamm3.
 %{__autoconf}
 %{__automake}
 %configure \
-	%{?with_static_libs:--enable-static=yes}
+	%{?with_static_libs:--enable-static}
 
 %{__make}
 
